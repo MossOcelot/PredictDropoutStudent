@@ -11,10 +11,10 @@
 - model_feature  
 
 		['MAJOR_ID', 'DEPT_ID', 'DEGREE_ID', 'STUD_BIRTH_PROVINCE_ID',
-       		'INSTITUTION_PROVINCE_ID', 'ENG_SCORE', 'CAMPUS_ID',
-       		'เกรดปี1เทอม1', 'เกรดปี1เทอม2', 'เกรดปี2เทอม1', 'เกรดปี2เทอม2',
-       		'เกรดปี3เทอม1', 'เกรดปี3เทอม2', 'เกรดปี4เทอม1', 'เกรดปี4เทอม2',
-       		'GPA_SCHOOL']
+       	'INSTITUTION_PROVINCE_ID', 'ENG_SCORE', 'CAMPUS_ID',
+       	'เกรดปี1เทอม1', 'เกรดปี1เทอม2', 'เกรดปี2เทอม1', 'เกรดปี2เทอม2',
+       	'เกรดปี3เทอม1', 'เกรดปี3เทอม2', 'เกรดปี4เทอม1', 'เกรดปี4เทอม2',
+       	'GPA_SCHOOL']
        		
 - Accuracy
 
@@ -32,10 +32,10 @@
 - model_feature
 
 		['MAJOR_ID', 'DEPT_ID', 'DEGREE_ID', 'STUD_BIRTH_PROVINCE_ID',
-       		'INSTITUTION_PROVINCE_ID', 'ENG_SCORE', 'CAMPUS_ID',
-       		'เกรดปี1เทอม1', 'เกรดปี1เทอม2', 'เกรดปี2เทอม1', 'เกรดปี2เทอม2',
-       		'เกรดปี3เทอม1', 'เกรดปี3เทอม2', 'เกรดปี4เทอม1', 'เกรดปี4เทอม2',
-       		'GPA_SCHOOL']
+       	'INSTITUTION_PROVINCE_ID', 'ENG_SCORE', 'CAMPUS_ID',
+       	'เกรดปี1เทอม1', 'เกรดปี1เทอม2', 'เกรดปี2เทอม1', 'เกรดปี2เทอม2',
+       	'เกรดปี3เทอม1', 'เกรดปี3เทอม2', 'เกรดปี4เทอม1', 'เกรดปี4เทอม2',
+       	'GPA_SCHOOL']
        		
 - Accuracy
 
