@@ -5,8 +5,8 @@
 
 # Model_map_R_to_E
 
-- train_data => 762 rows
-- test_data  => 357 rows
+- train_data => 1570 rows
+- test_data  => 382 rows
 
 - model_feature  
 
@@ -18,8 +18,8 @@
        		
 - Accuracy
 
-- all     => 82.35 %
-- rt      => 77.78 %
-- et      => 71.74 %
-- et + rt => 73.97 %
-- gt      => 88.15 %
+- f1      => 93.05 %
+- rt      => 97.37 %
+- et      => 71.70 %
+- et + rt => 82.42 %
+- gt      => 98.97 %
