@@ -1,4 +1,8 @@
 pandas
 dash
+<<<<<<< HEAD
 matplotlib
 flask
+=======
+--pre pycaret
+>>>>>>> 31a585fc43ea5b10c2264112450ef66903a640bb
