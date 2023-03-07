@@ -1,0 +1,116 @@
+.plain_text {
+    color: white;
+    font-size: 16px;
+    margin: 0px
+}
+
+.mini_text {
+    color: white;
+    font-size: 12px;
+    margin: 0px
+}
+
+.input_box{
+    border-radius: 5px;
+    border: none;
+    margin-left: 10px;
+    width: 261px; 
+    height: 35px; 
+    background: #353C56;
+    color:white;
+    
+}
+
+.miniinput_box {
+    border-radius: 5px;
+    border: none;
+    margin-left: 10px;
+    width: 130px; 
+    height: 35px; 
+    background: #353C56;
+    color:white;
+}
+
+.miniinput_box_for_grade {
+    border-radius: 5px;
+    border: none;
+    width: 130px; 
+    height: 35px; 
+    background: #353C56;
+    color:white;
+    margin-top: 10px;
+}
+
+.dropdown_box .Select-control {
+    margin-left: 10px;
+    border: none;
+    width: 261px; 
+    height: 35px; 
+    background-color: #353C56;
+    color: white
+}
+
+.dropdown_box .Select-option {
+    margin-left: 10px;
+    border: none;
+    width: 261px; 
+    height: 35px; 
+    background-color: #353C56;
+    color: white
+}
+
+.dropdown_box .Select-menu-outer {
+    background-color: #353C56;
+    margin-left:10px;
+    width: 261px; 
+    color: white;
+}
+
+.dropdown_box .Select-value-label {
+    color: white !important;
+}
+
+.minidropdown_box .Select-control{
+    margin-left: 10px;
+    border: none;
+    width: 150px; 
+    height: 35px; 
+    background-color: #353C56;
+    color: white 
+}
+.minidropdown_box .Select-option {
+    margin-left: 10px;
+    border: none;
+    width: 150px; 
+    height: 35px; 
+    background-color: #353C56;
+    color: white
+}
+
+.minidropdown_box .Select-menu-outer {
+    background-color: #353C56;
+    margin-left:10px;
+    width: 150px; 
+    color: white;
+}
+
+.minidropdown_box .Select-value-label {
+    color: white !important;
+}
+
+.box_in_Form{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.dash-tabs {
+    font-size: 20px;
+    height: 30px;
+    background-color: red;
+}
+
+.button_cancle{
+    background: #33375C;
+    border: none;
+}

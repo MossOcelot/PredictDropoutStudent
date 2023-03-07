@@ -5,7 +5,20 @@ from plotly.subplots import make_subplots
 import plotly.express as px
 import pandas
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
+from System.sendGmail import sendGmailToProfesser
+
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP, 'assets/main.css'])
+
+# sender
+sender = 'phuminsathipchan@gmail.com'
+receivers = ['sittasahathum@gmail.com','phuminsathipchan@gmail.com']
+message = """From: From Person <from@example.com>
+To: To Person <to@example.com>
+Subject: SMTP email example
+
+
+This is a test message.
+"""
 
 # Input Prediction
 @app.callback(
@@ -123,7 +136,44 @@ line_chart.update_xaxes(tickfont=dict(color='white'))
 # Set color of y-axis tick labels
 line_chart.update_yaxes(tickfont=dict(color='white'))
 
-
+# Tap
+@app.callback(
+    Output('my-output', 'children'),
+    Input('my-tabs', 'value'),
+    Input('input-1', 'value'),
+    Input('input-2', 'value'),
+    Input('input-3', 'value'),
+    Input('input-4', 'value'),
+    Input('input-5', 'value'),
+    Input('input-6', 'value'),
+    Input('input-7', 'value'),
+    Input('input-8', 'value'),
+    Input('input-9', 'value'),
+    Input('input-10', 'value'),
+    Input('input-11', 'value'),
+    Input('input-12', 'value'),
+    Input('input-13', 'value'),
+    Input('input-14', 'value'),
+    Input('input-15', 'value'),
+    Input('input-16', 'value'),
+    Input('input-17', 'value'),
+    Input('confirm', 'n_clicks')
+)
+def update_output(tab, input1, input2,input3, input4, input5, input6, input7, input8, input9,input10,input11, input12, input13, input14, input15, input16, input17, confirm):
+    if confirm:
+        if sendGmailToProfesser("sittasahathum@gmail.com", "test", "test123"):
+            print("successs")
+        else:
+            print("Unsucess")
+    if tab == 'tab-1':
+        print(f'You entered: {input1} {input2} {input3} {input4} {input5} in tab 1')
+        return f'You entered: {input1} {input4} {input5} in tab 1'
+    elif tab == 'tab-2':
+        print(f"Yur entered2: {input6} {input7} {input8} {input9} {input7} {input8} {input9} {input10} {input11} {input12} {input13} {input14} {input15} {input16} {input17}")
+        return f'You entered: {input6} {input7} {input8} {input9} {input7} {input8} {input9} {input10} {input11} {input12} {input13} {input14} {input15} {input16} {input17} in tab 2'
+    else:
+        return 'Error'
+    
 app.layout = html.Div( 
     [
         dbc.Row(
@@ -179,13 +229,102 @@ app.layout = html.Div(
                                     html.Button("คาดการณ์",id='open',style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '36px', 'margin-top': '8px'}),
                                     # modal input predict
                                     dbc.Modal([
-                                        dbc.ModalHeader(dbc.ModalTitle("Header")),
-                                        dbc.ModalBody("This is the content of the modal"),
-                                        dbc.ModalFooter(
-                                            dbc.Button(
-                                                "Close", id="close", className="ms-auto", n_clicks=0
-                                            )
-                                        ),
+                                        dbc.ModalBody([
+                                             dcc.Tabs(id='my-tabs', value='tab-1',
+                                                children=[
+                                                    dcc.Tab(label='ข้อมูล ม.ปลาย', value='tab-1',style={'background':'#292F45','border':'0','color':'white', 'font-size':'16'}, selected_style={'border':'0px','background':'#292F45',"border-bottom":"2px solid #7465F1","color": "#7465F1"}, children=[
+                                                        html.Div([
+                                                            html.P("รหัสนักศึกษา: ", className="plain_text"),
+                                                            dcc.Input(id='input-1', type='text', value='', className="input_box")
+                                                        ], className="box_in_Form"),
+                                                        html.Div([
+                                                            html.P("จังหวัดที่เกิด: ", className="plain_text"),
+                                                            dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-2',className="dropdown_box")
+                                                        ], className="box_in_Form"),
+                                                        html.Div([
+                                                            html.P("จังหวัดของโรงเรียน: ",className="plain_text"),
+                                                            dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-3', className="dropdown_box")
+                                                        ], className="box_in_Form"),
+                                                        html.Div([
+                                                            html.P("คะแนนภาษาอังกฤษ: ", className="plain_text"),
+                                                            dcc.Input(id='input-4', type='number', value='', className="input_box")
+                                                        ], className="box_in_Form"),
+                                                        html.Div([
+                                                            html.Div([
+                                                                html.P("เกรดมัธยม", className="plain_text"),
+                                                                html.P("(6ภาคเรียน): ", className="mini_text"),
+                                                            ], style={'display':'flex', 'align-items':'end', }),
+                                                            dcc.Input(id='input-5', type='number', value='',className="input_box")
+                                                        ], className="box_in_Form")
+                                                    ]),
+                                                    dcc.Tab(label='ข้อมูล มหาลัย', value='tab-2' ,selected_style={'border':'0px','background':'#292F45',"border-bottom":"2px solid #7465F1","color": "#7465F1"}, children=[
+                                                        html.Div([
+                                                            html.P("ปีที่เข้าการศึกษา: ", className="plain_text"),
+                                                            dcc.Input(id='input-6', type='text', value='', className="input_box")
+                                                        ], className="box_in_Form"),
+                                                        html.Div([
+                                                            html.P("วิทยาเขต: ", className="plain_text"),
+                                                            dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-7',className="minidropdown_box")
+                                                        ], className="box_in_Form"),
+                                                        html.Div([
+                                                            html.Div([
+                                                                html.P("สาขาวิชา: ",className="plain_text"),
+                                                                dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-8', className="minidropdown_box")
+                                                            ], className="box_in_Form"),
+                                                            html.Div([
+                                                                html.P("ภาควิชา: ",className="plain_text"),
+                                                                dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-9', className="minidropdown_box")
+                                                            ], className="box_in_Form"),
+                                                        ], style={'display':'flex','justify-content':'space-between'}),
+                                                        html.Div([
+                                                            html.P("เกรดเฉลี่ย: ", className="plain_text"),
+                                                            html.Div([
+                                                                html.Div([
+                                                                    html.P("ปี 1 เทอม 1", className="mini_text"),
+                                                                    dcc.Input(id='input-10', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]),
+                                                                html.Div([
+                                                                    html.P("ปี 1 เทอม 2", className="mini_text"),
+                                                                    dcc.Input(id='input-11', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]), 
+                                                                html.Div([
+                                                                    html.P("ปี 2 เทอม 1", className="mini_text"),
+                                                                    dcc.Input(id='input-12', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]),html.Div([
+                                                                    html.P("ปี 2 เทอม 2", className="mini_text"),
+                                                                    dcc.Input(id='input-13', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]),
+                                                                html.Div([
+                                                                    html.P("ปี 3 เทอม 1", className="mini_text"),
+                                                                    dcc.Input(id='input-14', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]), 
+                                                                html.Div([
+                                                                    html.P("ปี 3 เทอม 2", className="mini_text"),
+                                                                    dcc.Input(id='input-15', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]),html.Div([
+                                                                    html.P("ปี 4 เทอม 1", className="mini_text"),
+                                                                    dcc.Input(id='input-16', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]),
+                                                                html.Div([
+                                                                    html.P("ปี 4 เทอม 2", className="mini_text"),
+                                                                    dcc.Input(id='input-17', type='number', value='0',className="miniinput_box_for_grade")
+                                                                ]), 
+                                                            ],style={'display':'grid','grid-gap': '10px','justify-content': 'space-between', 'grid-template-columns': '1fr 1fr 1fr', 'grid-template-rows': '1fr 1fr 1fr'})
+                                                        ])
+
+                                                    ], style={'background':'#292F45','border':'0', 'color':'white', 'font-size':'16px'})
+                                                ],style={'display':'flex','align-items':'center'}
+                                            ),
+                                            html.Div(id='my-output'),
+                                            html.Div([
+                                                dbc.Button(
+                                                    "Close", id="close", className="button_cancle", n_clicks=0
+                                                ),
+                                                dbc.Button(
+                                                    "Confirm", id="confirm", className="button_cancle", n_clicks=0
+                                                )
+                                            ],style={'display':'flex', 'justify-content':'space-between'})
+                                        ], style={'background':'#292F45', 'border-radius': '5px'}),
                                     ],
                                     id="modal",
                                     is_open=False,),
@@ -324,6 +463,10 @@ app.layout = html.Div(
     ],
     style={'background':'#171D31'}
 )
+
+app.css.append_css({
+    "external_url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+})
 
 if __name__ == "__main__":
     app.run_server(debug=True)
