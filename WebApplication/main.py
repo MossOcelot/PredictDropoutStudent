@@ -6,8 +6,12 @@ import plotly.express as px
 import pandas
 
 from System.sendGmail import sendGmailToProfesser
+from System.provinces import getProvinceDB
+from System.campus import getCampas
+from System.majorDept import *
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP, 'assets/main.css'])
+
 
 # sender
 sender = 'phuminsathipchan@gmail.com'
@@ -19,6 +23,8 @@ Subject: SMTP email example
 
 This is a test message.
 """
+
+
 
 # Input Prediction
 @app.callback(
@@ -239,11 +245,11 @@ app.layout = html.Div(
                                                         ], className="box_in_Form"),
                                                         html.Div([
                                                             html.P("จังหวัดที่เกิด: ", className="plain_text"),
-                                                            dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-2',className="dropdown_box")
+                                                            dcc.Dropdown(getProvinceDB(), getProvinceDB()[0], id='input-2',className="dropdown_box")
                                                         ], className="box_in_Form"),
                                                         html.Div([
                                                             html.P("จังหวัดของโรงเรียน: ",className="plain_text"),
-                                                            dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-3', className="dropdown_box")
+                                                            dcc.Dropdown(getProvinceDB(), getProvinceDB()[0], id='input-3', className="dropdown_box")
                                                         ], className="box_in_Form"),
                                                         html.Div([
                                                             html.P("คะแนนภาษาอังกฤษ: ", className="plain_text"),
@@ -264,18 +270,16 @@ app.layout = html.Div(
                                                         ], className="box_in_Form"),
                                                         html.Div([
                                                             html.P("วิทยาเขต: ", className="plain_text"),
-                                                            dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-7',className="minidropdown_box")
+                                                            dcc.Dropdown(getCampas(), getCampas()[0], id='input-7',className="dropdown_box")
                                                         ], className="box_in_Form"),
                                                         html.Div([
-                                                            html.Div([
                                                                 html.P("สาขาวิชา: ",className="plain_text"),
-                                                                dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-8', className="minidropdown_box")
+                                                                dcc.Dropdown(getMajors(), getMajors()[0], id='input-8', className="dropdown_box")
                                                             ], className="box_in_Form"),
-                                                            html.Div([
-                                                                html.P("ภาควิชา: ",className="plain_text"),
-                                                                dcc.Dropdown(['NYC', 'MTL', 'SF'], 'NYC', id='input-9', className="minidropdown_box")
-                                                            ], className="box_in_Form"),
-                                                        ], style={'display':'flex','justify-content':'space-between'}),
+                                                        html.Div([
+                                                            html.P("ภาควิชา: ",className="plain_text"),
+                                                            dcc.Dropdown(getDepts(), getMajors()[0], id='input-9', className="dropdown_box")
+                                                        ], className="box_in_Form"),
                                                         html.Div([
                                                             html.P("เกรดเฉลี่ย: ", className="plain_text"),
                                                             html.Div([
