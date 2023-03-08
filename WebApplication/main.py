@@ -24,6 +24,7 @@ oldConfirm = 0
 predict_score = 0
 predict_label = ''
 recommendList = []
+last_logout = 0
 # Input Prediction
 @app.callback(
     Output("modal", "is_open"),
@@ -293,8 +294,10 @@ def update_output_layout1_2(n):
              [Input('interval-component-layout2', 'n_intervals'), Input('confirm', 'n_clicks') ])
 def update_output_layout2(n,confirm):
     global recommendList
+    global login_T
     #print(f"result: {predict_label} and {predict_score}")
-    if confirm != oldConfirm:
+    if (confirm != oldConfirm) & (login_T):
+        login_T = 0
         time.sleep(1) # ทำให้ช้าลงเพื่อรอ data update
         recommendList = createRecommendCard(predict_label, predict_score)
 
@@ -305,7 +308,6 @@ def update_output_layout2(n,confirm):
     
 @app.callback(Output('hidden-div','children'),[Input('user','value'),Input('pass','value')])
 def login(user_name,pass_word):
-    print("test2")
     if (user_name in ["gao","moss","sun"]) & (str(pass_word) in ['123456',"123456","123456"]):
         print('test')
         #webbrowser.open('http://localhost:8050/')
@@ -314,6 +316,11 @@ def login(user_name,pass_word):
         global predict_score
         global predict_label
         global recommendList
+        global login_T
+        global last_logout
+        global logouts
+        login_T = 1
+        last_logout = 0
         IsFirstTime = True
         oldConfirm = 0
         predict_score = 0
@@ -332,15 +339,21 @@ html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="but
                         ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"40vh","left":"43vw"})
 ]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
 
-@app.callback(Output('hiddens-div','children'),[Input('logout','value')])
+@app.callback(Output('hiddens-div','children'),[Input('logout','n_clicks')])
 def logout(logout):
-    print(logout)
-    print('hello')
-    app.layout = html.Div(children=[
-    html.Div(children=[html.H1(children='Login',style={"color":"white","margin-botton":""}),
-    html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
-    html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
-    html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
+    global last_logout
+    global logouts
+    logouts = logout
+    print("test : ",logouts)
+    print("test2 : ",last_logout)
+    if(last_logout != logout):
+        last_logout = logout
+        #login_T = 0
+        app.layout = html.Div(children=[
+        html.Div(children=[html.H1(children='Login',style={"color":"white","margin-botton":""}),
+        html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+        html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+        html.Div(children=[dcc.Link(children=[html.Button("test",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
                         ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"39vh","left":"43vw"})
 ]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
     return 1
@@ -361,7 +374,7 @@ layout = html.Div(
                 ),
                 dbc.Col([
                     html.Div([
-                        dcc.Link(children=[html.Button("logout",id = 'logout',type="button",style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '10px'})],href='/',refresh=True),
+                        dcc.Link(children=[html.Button("logout",id = 'logout',type="button",n_clicks=0,style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '10px'})],href='/',refresh=True),
                         html.Div(id="alert-output", style={'margin-right': '10px','height':'45px', 'background': '#F8A22A', 'color':'white', 'display':'flex','align-items':'center','justify-content':'center'}),
                         html.Button("ติดต่อ",id="open_contact",style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '36px'}),
                         # modal Contact
@@ -520,13 +533,6 @@ layout = html.Div(
                                         html.P("200",style={'color':'white', 'font-size': '24px'}),
                                         html.P("จำนวนผู้ที่ตกออก",style={'color':'white', 'font-size': '12px'})
                                     ],style={'margin-left':'10px'})
-                                ], style={'display': 'flex'}),
-                                html.Div([
-                                    html.Div(html.I(className="bi bi-star-fill", style={'color': '#12ABC3','font-size': '42px'}), style={'border-radius': '100%','padding-left':'20px','padding-right':'20px', 'padding-top':'10px', 'height': '80px', 'background': '#2A445A'}),
-                                    html.Div([
-                                        html.P("700",style={'color':'white', 'font-size': '24px'}),
-                                        html.P("จำนวนผู้เข้าร่วม",style={'color':'white', 'font-size': '12px'})
-                                    ],style={'margin-left':'10px'})
                                 ], style={'display': 'flex'})
                             ], style={'display': 'flex', 'justify-content': 'space-between','margin-top':'10px'}),
                         ],style={'padding':'20px','background':'#292F45','width':'875px', 'height': '183px','border-radius': '5px', 'margin-right': '15px'})
@@ -605,4 +611,4 @@ app.css.append_css({
 })
 
 if __name__ == "__main__":
-    app.run_server(debug=True,port = 8051)
+    app.run_server(debug=False,port = 8051)
