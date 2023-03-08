@@ -6,8 +6,8 @@ from email.mime.multipart import MIMEMultipart
 def sendGmailToProfesser(to_Recipent, subject, content):
     try:
         # Gmail account details
-        gmail_user = 'phuminsathipchan@gmail.com'
-        gmail_password = 'jellrmwsbwdrcree'
+        gmail_user = 'predictiontestingproject@gmail.com'
+        gmail_password = 'ddepvsloywlsgkbl'
 
         # Recipient email address
         to = to_Recipent
@@ -32,3 +32,8 @@ def sendGmailToProfesser(to_Recipent, subject, content):
         return True
     except:
         return False
+
+if 2 or 0:
+    print(True)
+else:
+    print(False)

@@ -1,5 +1,5 @@
 campas = ['วิทยาเขตหาดใหญ่', 'วิทยาเขตภูเก็ต']
-campas_id = ['01', '03']
+campas_id = [1, 3]
 
 def getCampas():
     return campas
