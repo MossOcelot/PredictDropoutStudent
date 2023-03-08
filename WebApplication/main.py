@@ -115,8 +115,8 @@ bar_chart.update_yaxes(tickfont=dict(color='white'))
     
 # -------------------- line graph --------------------
 # Define data for the bar chart
-x = ['2559', '2560', '2561', '2562']
-y = [100, 50, 170, 20]
+x = ['2561', '2562', '2563', '2564']
+y = [83, 76, 102, 171]
 
 # Create the bar chart
 line_chart = go.Figure(
