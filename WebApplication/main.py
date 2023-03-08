@@ -17,7 +17,7 @@ from System.recommend import createRecommendCard
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP, 'assets/main.css'])
 
 # model 
-model = load_model("../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final")
+model = load_model("model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final")
 
 IsFirstTime = True
 oldConfirm = 0
@@ -303,8 +303,51 @@ def update_output_layout2(n,confirm):
         return html.Div(html.P("ยังไม่มีข้อมูลพยากรณ์",style={'display':'flex','align-items':'center','justify-content':'center','height':'285px','color':'white', 'margin': '0px', 'font-size': '16px'}), style={'display':'grid', 'grid-template-columns':'562px','align-items':'center'})
     else:
         return html.Div(recommendList,style={'display':'grid', 'grid-template-columns':'281px 281px'})
+    
+@app.callback(Output('hidden-div','children'),[Input('user','value'),Input('pass','value')])
+def login(user_name,pass_word):
+    print("test2")
+    if (user_name in ["gao","moss","sun"]) & (str(pass_word) in ['123456',"123456","123456"]):
+        print('test')
+        #webbrowser.open('http://localhost:8050/')
+        global IsFirstTime
+        global oldConfirm
+        global predict_score
+        global predict_label
+        global recommendList
+        IsFirstTime = True
+        oldConfirm = 0
+        predict_score = 0
+        predict_label = ''
+        recommendList = []
+        app.layout = layout
+        return user_name+ str(pass_word)
 
-app.layout = html.Div( 
+
+    
+app.layout = html.Div(children=[
+html.Div(children=[html.H1(children='Login',style={"color":"white"}),
+html.Div(children=[dcc.Input(id = 'user',type='text',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+html.Div(children=[dcc.Input(id = 'pass',type='password',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
+                        ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"40vh","left":"43vw"})
+]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
+
+@app.callback(Output('hiddens-div','children'),[Input('logout','value')])
+def logout(logout):
+    print(logout)
+    print('hello')
+    app.layout = html.Div(children=[
+    html.Div(children=[html.H1(children='Login',style={"color":"white","margin-botton":""}),
+    html.Div(children=[dcc.Input(id = 'user',type='text',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+    html.Div(children=[dcc.Input(id = 'pass',type='password',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+    html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
+                        ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"39vh","left":"43vw"})
+]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
+    return 1
+
+
+layout = html.Div( 
     [
         dbc.Row(
             [
@@ -319,6 +362,7 @@ app.layout = html.Div(
                 ),
                 dbc.Col([
                     html.Div([
+                        dcc.Link(children=[html.Button("logout",id = 'logout',type="button",style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '10px'})],href='/',refresh=True),
                         html.Div(id="alert-output", style={'margin-right': '10px','height':'45px', 'background': '#F8A22A', 'color':'white', 'display':'flex','align-items':'center','justify-content':'center'}),
                         html.Button("ติดต่อ",id="open_contact",style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '36px'}),
                         # modal Contact
@@ -553,7 +597,7 @@ app.layout = html.Div(
                 ]),
             ]
         ),
-    ],
+    ] + [html.Div(id='hiddens-div',style={"display":"none"})],
     style={'background':'#171D31'}
 )
 
@@ -562,4 +606,4 @@ app.css.append_css({
 })
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False,port = 8051)
