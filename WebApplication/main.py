@@ -1,4 +1,3 @@
-import dash
 from dash import Dash, Input, Output, State, html, dcc
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
@@ -13,6 +12,8 @@ from System.sendGmail import sendGmailToProfesser
 from System.provinces import *
 from System.campus import *
 from System.majorDept import *
+from System.recommend import createRecommendCard
+
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP, 'assets/main.css'])
 
 # model 
@@ -22,6 +23,7 @@ IsFirstTime = True
 oldConfirm = 0
 predict_score = 0
 predict_label = ''
+recommendList = []
 # Input Prediction
 @app.callback(
     Output("modal", "is_open"),
@@ -109,7 +111,7 @@ bar_chart.update_xaxes(tickfont=dict(color='white'))
 
 # Set color of y-axis tick labels
 bar_chart.update_yaxes(tickfont=dict(color='white'))
-
+    
 # -------------------- line graph --------------------
 # Define data for the bar chart
 x = ['2559', '2560', '2561', '2562']
@@ -199,20 +201,20 @@ def update_output(tab,confirm,*values):
                 
                 IsFirstTime = False
                 oldConfirm = confirm
-#                 if(result == "R"):
-#                     if sendGmailToProfesser("phuminsathipchan@gmail.com", f"{values[0]} มีโอกาสที่จะโดนรีไทร์", 
-#                                         f"""
-# รหัสนักศึกษา: {values[0]}
-# สถานะ: {result}
-# ความแม่นยำ: {pre_score * 100} %
+                if(result == "R"):
+                    if sendGmailToProfesser("phuminsathipchan@gmail.com", f"{values[0]} มีโอกาสที่จะโดนรีไทร์", 
+                                        f"""
+รหัสนักศึกษา: {values[0]}
+สถานะ: {result}
+ความแม่นยำ: {pre_score * 100} %
 
-# หมายเหตุ: ข้อมูลข้างต้นเป็นเพียงการคาดการณ์เท่านั้นโปรดตรวจสอบอีกครั้ง
-#                                         """
-#                                         ):
-#                         print("successs")
-#                         return ['', '  เราได้ทำการส่งข้อมูลไปให้อาจารย์ที่ปรึกษาเรียบร้อยแล้ว  ']
+หมายเหตุ: ข้อมูลข้างต้นเป็นเพียงการคาดการณ์เท่านั้นโปรดตรวจสอบอีกครั้ง
+                                        """
+                                        ):
+                        print("successs")
+                        return ['', '  เราได้ทำการส่งข้อมูลไปให้อาจารย์ที่ปรึกษาเรียบร้อยแล้ว  ']
                 
-#                     return ['', '  การส่งแจ้งเตือนไปยังอาจารย์ที่ปรึกษามีปัญหา โปรดติดต่อได้ที่ >>>  ']
+                    return ['', '  การส่งแจ้งเตือนไปยังอาจารย์ที่ปรึกษามีปัญหา โปรดติดต่อได้ที่ >>>  ']
                 
                 
             return ["กรอกข้อมูลครบแล้ว กดยืนยันเพื่อพยากรณ์", '']
@@ -231,7 +233,7 @@ def update_output(n):
             html.P("No Data",style={'color':'white', 'margin-top': '-20px', 'font-size': '24px'}),
             html.Div([
                 html.P("ความแม่นยำ",style={'color':'white', 'margin': '0px', 'font-size': '12px'}),
-                html.P(f"{predict_score * 100} %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
+                html.P("{:.2f} %".format(predict_score * 100),style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
             ],style={'display':'flex','flex-direction':'column','justify-content':'center','align-items':'center', 'margin-bottom': '10px'}),
         ],style={'display':'flex','flex-direction':'column','justify-content':'center', 'align-items':'center','width':'250px'})
     else:
@@ -241,7 +243,7 @@ def update_output(n):
                 html.P("PASS",style={'color':'white', 'margin-top': '-20px', 'font-size': '24px'}),
                 html.Div([
                     html.P("ความแม่นยำ",style={'color':'white', 'margin': '0px', 'font-size': '12px'}),
-                    html.P(f"{predict_score * 100} %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
+                    html.P("{:.2f} %".format(predict_score * 100),style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
                 ],style={'display':'flex','flex-direction':'column','justify-content':'center','align-items':'center', 'margin-bottom': '10px'}),
             ],style={'display':'flex','flex-direction':'column','justify-content':'center', 'align-items':'center','width':'250px'})
     
@@ -251,7 +253,7 @@ def update_output(n):
                 html.P("RETIRE",style={'color':'white', 'margin-top': '-20px', 'font-size': '24px'}),
                 html.Div([
                     html.P("ความแม่นยำ",style={'color':'white', 'margin': '0px', 'font-size': '12px'}),
-                    html.P(f"{predict_score * 100} %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
+                    html.P("{:.2f} %".format(predict_score * 100),style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
                 ],style={'display':'flex','flex-direction':'column','justify-content':'center','align-items':'center', 'margin-bottom': '10px'}),
             ],style={'display':'flex','flex-direction':'column','justify-content':'center', 'align-items':'center','width':'250px'})
 
@@ -287,6 +289,20 @@ def update_output_layout1_2(n):
         
         elif predict_label == 'R':
             return html.I(className="bi bi-exclamation-circle-fill",style={'font-size': '108px', 'color': '#E15354'})
+
+@app.callback(Output('output-layout2', 'children'),
+             [Input('interval-component-layout2', 'n_intervals'), Input('confirm', 'n_clicks') ])
+def update_output_layout2(n,confirm):
+    global recommendList
+    print(f"result: {predict_label} and {predict_score}")
+    if confirm != oldConfirm:
+        time.sleep(1) # ทำให้ช้าลงเพื่อรอ data update
+        recommendList = createRecommendCard(predict_label, predict_score)
+
+    if IsFirstTime:
+        return html.Div(html.P("ยังไม่มีข้อมูลพยากรณ์",style={'display':'flex','align-items':'center','justify-content':'center','height':'285px','color':'white', 'margin': '0px', 'font-size': '16px'}), style={'display':'grid', 'grid-template-columns':'562px','align-items':'center'})
+    else:
+        return html.Div(recommendList,style={'display':'grid', 'grid-template-columns':'281px 281px'})
 
 app.layout = html.Div( 
     [
@@ -505,33 +521,9 @@ app.layout = html.Div(
                         html.Div([
                             html.Div([
                                 html.P("คำแนะนำเพิ่มเติม",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),
-                                html.Div([
-                                    # recommend cards
-                                    html.Div([
-                                        html.I(className='bi bi-exclamation-diamond-fill', style={'font-size':'56px', 'color':'#F8A22A'}),
-                                        html.P("ปีหน้าห้ามตก",style={'color':'white', 'margin': '0px', 'font-size': '16px','margin-left':'8px'})
-                                    ],style={'display':'flex','align-items':'center','height':'80px', 'background':'#353C56','border-radius':'5px','padding':'20px','margin-right':'24px', 'margin-top':'15px'}),
-                                    html.Div([
-                                        html.I(className='bi bi-x-circle', style={'font-size':'56px', 'color':'#E15354'}),
-                                        html.P("เทอมนี้ห้ามเกรดต่ำกว่า C ทุกตัว",style={'color':'white', 'margin': '0px', 'font-size': '16px','margin-left':'8px'})
-                                    ],style={'display':'flex','align-items':'center','height':'80px', 'background':'#353C56','border-radius':'5px','padding':'20px','margin-right':'24px', 'margin-top':'15px'}),
-                                    html.Div([
-                                        html.I(className='bi bi-hand-thumbs-up-fill', style={'font-size':'56px', 'color':'#2AAB69'}),
-                                        html.P("ตั้งใจเรียนต่อไป",style={'color':'white', 'margin': '0px', 'font-size': '16px','margin-left':'8px'})
-                                    ],style={'display':'flex','align-items':'center','height':'80px', 'background':'#353C56','border-radius':'5px','padding':'20px','margin-right':'24px', 'margin-top':'15px'}),
-                                    html.Div([
-                                        html.I(className='bi bi-hand-thumbs-down-fill', style={'font-size':'56px', 'color':'#7465F1'}),
-                                        html.P("ห้ามกินเหล้า",style={'color':'white', 'margin': '0px', 'font-size': '16px','margin-left':'8px'})
-                                    ],style={'display':'flex','align-items':'center','height':'80px', 'background':'#353C56','border-radius':'5px','padding':'20px','margin-right':'24px', 'margin-top':'15px'}),
-                                    html.Div([
-                                        html.I(className='bi bi-hand-thumbs-up-fill', style={'font-size':'56px', 'color':'#2AAB69'}),
-                                        html.P("โยนได้ปีหน้า",style={'color':'white', 'margin': '0px', 'font-size': '16px','margin-left':'8px'})
-                                    ],style={'display':'flex','align-items':'center','height':'80px', 'background':'#353C56','border-radius':'5px','padding':'20px','margin-right':'24px', 'margin-top':'15px'}),
-                                    html.Div([
-                                        html.I(className='bi bi-hand-thumbs-down-fill', style={'font-size':'56px', 'color':'#7465F1'}),
-                                        html.P("ห้ามเที่ยว",style={'color':'white', 'margin': '0px', 'font-size': '16px','margin-left':'8px'})
-                                    ],style={'display':'flex','align-items':'center','height':'80px', 'background':'#353C56','border-radius':'5px','padding':'20px','margin-right':'24px', 'margin-top':'15px'})
-                                ],style={'display':'grid', 'grid-template-columns':'281px 281px'})
+                                # recommend box
+                                dcc.Interval(id='interval-component-layout2', interval=500, n_intervals=0),
+                                html.Div(id='output-layout2'),
                             ]),
                             html.Div(style={'width':'3px', 'height':'100%', 'border-radius':'5px', 'background':'#353C56'}),
                             ###
