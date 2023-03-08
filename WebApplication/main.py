@@ -154,50 +154,49 @@ def update_output(tab,confirm,*values):
     global IsFirstTime
     global oldConfirm
 
-    print(values)
     if tab == 'tab-1':
-        print("Tap 1")
         if '' not in values[:5]:
             return ["กรอกครบแล้ว",'']
         return ['ยังกรอกไม่ครบ','']
     elif tab == 'tab-2':
-        print("Tap 2")
+ 
         if '' not in values and values.count(None) < 7:
-            print("xxx")
+       
             if confirm != oldConfirm:
-                print("SSAA")
+    
                 values = list(values)
                 index_set = {
-                    'MAJOR_ID': checkMajorId(values[5]),
-                    'DEPT_ID': checkDeptId(values[6]),
-                    'DEGREE_ID': checkDegreeId(values[5]),
-                    'STUD_BIRTH_PROVINCE_ID': checkProvinceID(values[1]),
-                    'INSTITUTION_PROVINCE_ID': checkProvinceID(values[2]),
-                    'ENG_SCORE': values[3],
-                    'CAMPUS_ID': checkCampasID(values[4]),
-                    'เกรดปี1เทอม1': values[7],
-                    'เกรดปี1เทอม2': values[8],
-                    'เกรดปี2เทอม1': values[9],
-                    'เกรดปี2เทอม2': values[10],
-                    'เกรดปี3เทอม1': values[11],
-                    'เกรดปี3เทอม2': values[12],
-                    'เกรดปี4เทอม1': values[13],
-                    'เกรดปี4เทอม2': values[14]
+                    'MAJOR_ID': [checkMajorId(values[5])],
+                    'DEPT_ID': [checkDeptId(values[6])],
+                    'DEGREE_ID': [checkDegreeId(values[5])],
+                    'STUD_BIRTH_PROVINCE_ID': [checkProvinceID(values[1])],
+                    'INSTITUTION_PROVINCE_ID': [checkProvinceID(values[2])],
+                    'ENG_SCORE': [values[3]],
+                    'CAMPUS_ID': [checkCampasID(values[4])],
+                    'เกรดปี1เทอม1': [values[7]],
+                    'เกรดปี1เทอม2': [values[8]],
+                    'เกรดปี2เทอม1': [values[9]],
+                    'เกรดปี2เทอม2': [values[10]],
+                    'เกรดปี3เทอม1': [values[11]],
+                    'เกรดปี3เทอม2': [values[12]],
+                    'เกรดปี4เทอม1': [values[13]],
+                    'เกรดปี4เทอม2': [values[14]]
                 }
-                dataframe = pandas.DataFrame(columns=model.feature_names_in_[:-1])
-                dataframe = dataframe.append(index_set, ignore_index=True)
+                dataframe = pandas.DataFrame(index_set)
+                # dataframe = dataframe.append(index_set, ignore_index=True)
+                
                 start,stop = dataframe.columns.tolist().index('เกรดปี1เทอม1'),dataframe.columns.tolist().index('เกรดปี4เทอม2') + 1
-
-                mean_row = (dataframe.iloc[0,start:stop].sum() / (dataframe.iloc[0,start:stop] != 0).sum())
-                data_1 = dataframe.iloc[0:1].replace(numpy.nan,mean_row)
-                print(f'{data_1}')
+                print(f'{start}:{stop}')
+                mean_row = (dataframe.iloc[0,start:stop]).sum() / (dataframe.iloc[0,start:stop] != 0).sum()
+                print("mean : ",mean_row)
+                data_1 = dataframe.iloc[0:1].replace(0,mean_row)
+                #print(f'{data_1}')
+                print("data_out",data_1)
                 predict_value = predict_model(model, data_1)
                 result = predict_value['prediction_label'][0]
                 pre_score = predict_value['prediction_score'][0]
-                print(f"OOP: {predict_score}")
                 predict_score = pre_score
                 predict_label = result
-                print("success")
                 
                 IsFirstTime = False
                 oldConfirm = confirm
@@ -294,7 +293,7 @@ def update_output_layout1_2(n):
              [Input('interval-component-layout2', 'n_intervals'), Input('confirm', 'n_clicks') ])
 def update_output_layout2(n,confirm):
     global recommendList
-    print(f"result: {predict_label} and {predict_score}")
+    #print(f"result: {predict_label} and {predict_score}")
     if confirm != oldConfirm:
         time.sleep(1) # ทำให้ช้าลงเพื่อรอ data update
         recommendList = createRecommendCard(predict_label, predict_score)
@@ -327,8 +326,8 @@ def login(user_name,pass_word):
     
 app.layout = html.Div(children=[
 html.Div(children=[html.H1(children='Login',style={"color":"white"}),
-html.Div(children=[dcc.Input(id = 'user',type='text',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
-html.Div(children=[dcc.Input(id = 'pass',type='password',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
 html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
                         ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"40vh","left":"43vw"})
 ]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
@@ -339,8 +338,8 @@ def logout(logout):
     print('hello')
     app.layout = html.Div(children=[
     html.Div(children=[html.H1(children='Login',style={"color":"white","margin-botton":""}),
-    html.Div(children=[dcc.Input(id = 'user',type='text',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
-    html.Div(children=[dcc.Input(id = 'pass',type='password',style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+    html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+    html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
     html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
                         ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"39vh","left":"43vw"})
 ]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
@@ -442,33 +441,33 @@ layout = html.Div(
                                                             html.Div([
                                                                 html.Div([
                                                                     html.P("ปี 1 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-8', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-8', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),
                                                                 html.Div([
                                                                     html.P("ปี 1 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-9', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-9', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]), 
                                                                 html.Div([
                                                                     html.P("ปี 2 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-10', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-10', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),html.Div([
                                                                     html.P("ปี 2 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-11', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-11', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),
                                                                 html.Div([
                                                                     html.P("ปี 3 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-12', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-12', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]), 
                                                                 html.Div([
                                                                     html.P("ปี 3 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-13', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-13', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),html.Div([
                                                                     html.P("ปี 4 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-14', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-14', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),
                                                                 html.Div([
                                                                     html.P("ปี 4 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-15', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-15', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]), 
                                                             ],style={'display':'grid','grid-gap': '10px','justify-content': 'space-between', 'grid-template-columns': '1fr 1fr 1fr', 'grid-template-rows': '1fr 1fr 1fr'})
                                                         ])
@@ -606,4 +605,4 @@ app.css.append_css({
 })
 
 if __name__ == "__main__":
-    app.run_server(debug=False,port = 8051)
+    app.run_server(debug=True,port = 8051)
