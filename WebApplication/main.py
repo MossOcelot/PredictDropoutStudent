@@ -353,7 +353,7 @@ def logout(logout):
         html.Div(children=[html.H1(children='Login',style={"color":"white","margin-botton":""}),
         html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
         html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
-        html.Div(children=[dcc.Link(children=[html.Button("test",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
+        html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
                         ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"39vh","left":"43vw"})
 ]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
     return 1
