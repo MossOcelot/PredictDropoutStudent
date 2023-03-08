@@ -85,8 +85,8 @@ fig.update_layout(
 
 # -------------------- bar graph --------------------
 # Define data for the bar chart
-x = ['2559', '2560', '2561', '2562']
-y = [30, 50, 20, 32]
+x = ['1/1-1/2', '1/1-2/2', '1/1-3/2']
+y = [69.19, 85.12, 93.21]
 
 # Create the bar chart
 bar_chart = go.Figure(
@@ -537,7 +537,7 @@ layout = html.Div(
                             html.Div([
                                 html.Div([
                                     html.P("ความแม่นยำ",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),
-                                    html.P("40 %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
+                                    html.P("95.30 %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
                                     html.Div(
                                         dcc.Graph(id="example-graph-1",figure=bar_chart, style={'width':'147px', 'height':'73px','margin-top':'10px'})
                                     )
