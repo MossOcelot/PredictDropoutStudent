@@ -12568,3 +12568,174 @@ current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0
 pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
   warnings.warn(
 
+2023-03-07 16:12:00,565:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-07 16:12:00,565:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-07 16:12:00,565:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-07 16:12:00,565:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-07 16:12:00,931:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-07 16:12:01,042:INFO:PyCaret ClassificationExperiment
+2023-03-07 16:12:01,042:INFO:Logging name: clf-default-name
+2023-03-07 16:12:01,042:INFO:ML Usecase: MLUsecase.CLASSIFICATION
+2023-03-07 16:12:01,042:INFO:version 3.0.0.rc9
+2023-03-07 16:12:01,042:INFO:Initializing setup()
+2023-03-07 16:12:01,042:INFO:self.USI: 372a
+2023-03-07 16:12:01,042:INFO:self._variable_keys: {'USI', 'fold_generator', 'is_multiclass', 'X_test', 'target_param', 'gpu_param', 'gpu_n_jobs_param', 'fix_imbalance', 'data', 'fold_groups_param', 'log_plots_param', 'exp_name_log', 'fold_shuffle_param', 'y_train', '_available_plots', 'n_jobs_param', 'X', 'exp_id', '_ml_usecase', 'y_test', 'X_train', 'y', 'logging_param', 'pipeline', 'idx', 'seed', 'html_param', 'memory'}
+2023-03-07 16:12:01,042:INFO:Checking environment
+2023-03-07 16:12:01,042:INFO:python_version: 3.10.9
+2023-03-07 16:12:01,042:INFO:python_build: ('v3.10.9:1dd9be6584', 'Dec  6 2022 14:37:36')
+2023-03-07 16:12:01,042:INFO:machine: arm64
+2023-03-07 16:12:01,042:INFO:platform: macOS-13.1-arm64-arm-64bit
+2023-03-07 16:12:01,043:INFO:Memory: svmem(total=8589934592, available=1773715456, percent=79.4, used=3001106432, free=43237376, active=1742979072, inactive=1673330688, wired=1258127360)
+2023-03-07 16:12:01,043:INFO:Physical Core: 8
+2023-03-07 16:12:01,043:INFO:Logical Core: 8
+2023-03-07 16:12:01,043:INFO:Checking libraries
+2023-03-07 16:12:01,043:INFO:System:
+2023-03-07 16:12:01,043:INFO:    python: 3.10.9 (v3.10.9:1dd9be6584, Dec  6 2022, 14:37:36) [Clang 13.0.0 (clang-1300.0.29.30)]
+2023-03-07 16:12:01,043:INFO:executable: /Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/bin/python
+2023-03-07 16:12:01,043:INFO:   machine: macOS-13.1-arm64-arm-64bit
+2023-03-07 16:12:01,043:INFO:PyCaret required dependencies:
+2023-03-07 16:12:01,043:INFO:                 pip: 23.0.1
+2023-03-07 16:12:01,043:INFO:          setuptools: 65.5.0
+2023-03-07 16:12:01,043:INFO:             pycaret: 3.0.0rc9
+2023-03-07 16:12:01,043:INFO:             IPython: 8.10.0
+2023-03-07 16:12:01,043:INFO:          ipywidgets: 8.0.4
+2023-03-07 16:12:01,043:INFO:                tqdm: 4.64.1
+2023-03-07 16:12:01,043:INFO:               numpy: 1.23.5
+2023-03-07 16:12:01,043:INFO:              pandas: 1.5.3
+2023-03-07 16:12:01,043:INFO:              jinja2: 3.1.2
+2023-03-07 16:12:01,043:INFO:               scipy: 1.10.1
+2023-03-07 16:12:01,043:INFO:              joblib: 1.2.0
+2023-03-07 16:12:01,043:INFO:             sklearn: 1.2.1
+2023-03-07 16:12:01,043:INFO:                pyod: 1.0.7
+2023-03-07 16:12:01,043:INFO:            imblearn: 0.10.1
+2023-03-07 16:12:01,043:INFO:   category_encoders: 2.6.0
+2023-03-07 16:12:01,043:INFO:            lightgbm: 3.3.5
+2023-03-07 16:12:01,043:INFO:               numba: 0.56.4
+2023-03-07 16:12:01,043:INFO:            requests: 2.28.2
+2023-03-07 16:12:01,043:INFO:          matplotlib: 3.7.0
+2023-03-07 16:12:01,043:INFO:          scikitplot: 0.3.7
+2023-03-07 16:12:01,043:INFO:         yellowbrick: 1.5
+2023-03-07 16:12:01,043:INFO:              plotly: 5.13.0
+2023-03-07 16:12:01,043:INFO:             kaleido: 0.2.1
+2023-03-07 16:12:01,043:INFO:         statsmodels: 0.13.5
+2023-03-07 16:12:01,043:INFO:              sktime: 0.16.1
+2023-03-07 16:12:01,043:INFO:               tbats: 1.1.2
+2023-03-07 16:12:01,043:INFO:            pmdarima: 2.0.2
+2023-03-07 16:12:01,043:INFO:              psutil: 5.9.4
+2023-03-07 16:12:01,043:INFO:PyCaret optional dependencies:
+2023-03-07 16:12:01,045:INFO:                shap: Not installed
+2023-03-07 16:12:01,045:INFO:           interpret: Not installed
+2023-03-07 16:12:01,045:INFO:                umap: Not installed
+2023-03-07 16:12:01,045:INFO:    pandas_profiling: Not installed
+2023-03-07 16:12:01,045:INFO:  explainerdashboard: Not installed
+2023-03-07 16:12:01,045:INFO:             autoviz: Not installed
+2023-03-07 16:12:01,045:INFO:           fairlearn: Not installed
+2023-03-07 16:12:01,045:INFO:             xgboost: 1.7.4
+2023-03-07 16:12:01,045:INFO:            catboost: Not installed
+2023-03-07 16:12:01,045:INFO:              kmodes: Not installed
+2023-03-07 16:12:01,045:INFO:             mlxtend: Not installed
+2023-03-07 16:12:01,045:INFO:       statsforecast: Not installed
+2023-03-07 16:12:01,045:INFO:        tune_sklearn: Not installed
+2023-03-07 16:12:01,045:INFO:                 ray: Not installed
+2023-03-07 16:12:01,045:INFO:            hyperopt: Not installed
+2023-03-07 16:12:01,045:INFO:              optuna: Not installed
+2023-03-07 16:12:01,045:INFO:               skopt: Not installed
+2023-03-07 16:12:01,045:INFO:              mlflow: Not installed
+2023-03-07 16:12:01,045:INFO:              gradio: Not installed
+2023-03-07 16:12:01,045:INFO:             fastapi: Not installed
+2023-03-07 16:12:01,045:INFO:             uvicorn: Not installed
+2023-03-07 16:12:01,045:INFO:              m2cgen: Not installed
+2023-03-07 16:12:01,045:INFO:           evidently: Not installed
+2023-03-07 16:12:01,045:INFO:               fugue: Not installed
+2023-03-07 16:12:01,045:INFO:           streamlit: Not installed
+2023-03-07 16:12:01,045:INFO:             prophet: Not installed
+2023-03-07 16:12:01,045:INFO:None
+2023-03-07 16:12:01,045:INFO:Set up data.
+2023-03-07 16:12:28,433:INFO:Initializing load_model()
+2023-03-07 16:12:28,433:INFO:load_model(model_name=model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final.pkl, platform=None, authentication=None, verbose=True)
+2023-03-07 16:12:45,531:INFO:Initializing load_model()
+2023-03-07 16:12:45,531:INFO:load_model(model_name=model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final.pkl, platform=None, authentication=None, verbose=True)
+2023-03-07 16:12:46,275:INFO:Initializing load_model()
+2023-03-07 16:12:46,275:INFO:load_model(model_name=model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final.pkl, platform=None, authentication=None, verbose=True)
+2023-03-07 16:12:59,792:INFO:Initializing load_model()
+2023-03-07 16:12:59,793:INFO:load_model(model_name=model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-07 16:12:59,843:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-07 16:16:59,516:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1430262062.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  player = player.append({'MAJOR_ID':'012'})
+
+2023-03-07 16:17:13,420:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/587712622.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  player = player.append({'MAJOR_ID':'012'},ignore_index=False)
+
+2023-03-07 16:17:18,348:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/587712622.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  player = player.append({'MAJOR_ID':'012'},ignore_index=False)
+
+2023-03-07 16:17:19,071:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/587712622.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  player = player.append({'MAJOR_ID':'012'},ignore_index=False)
+
+2023-03-07 16:17:22,999:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1789036993.py:4: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  player = player.append({'MAJOR_ID':'012'},ignore_index=True)
+
+2023-03-07 16:35:33,515:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/2290491088.py:6: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(data)
+
+2023-03-07 16:35:38,463:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1420246016.py:5: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(data)
+
+2023-03-07 16:49:43,207:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/3207341181.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:49:45,227:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/4126660901.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:49:51,815:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1641839661.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:50:03,231:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/3152648962.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:50:21,075:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1883584375.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:50:51,914:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1416522989.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:50:54,297:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/438884330.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:51:10,294:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/2684505398.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:51:20,674:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1149431471.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 16:51:30,999:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1039685642.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 17:45:47,242:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1487863427.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 17:45:50,322:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1676373547.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 17:46:20,832:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1960148116.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+
+2023-03-07 18:09:03,879:INFO:Initializing load_model()
+2023-03-07 18:09:03,879:INFO:load_model(model_name=model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-07 18:09:03,905:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-07 18:09:03,951:WARNING:/var/folders/mm/8p6c4t653m5__qt5qvfzgw0h0000gn/T/ipykernel_14779/1960148116.py:8: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(x, ignore_index=True)
+

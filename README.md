@@ -17,9 +17,15 @@
 'GPA_SCHOOL']
        		
 - Accuracy
+- acc     =>  95.30 %
+- f1      =>  90.70 %
+- rt      =>  97.37 %
+- et      =>  71.70 %
+- et + rt =>  82.42 %
+- gt      =>  98.97 %
 
-- f1      => 93.05 %
-- rt      => 97.37 %
-- et      => 71.70 %
-- et + rt => 82.42 %
-- gt      => 98.97 %
+# Test_model_hide_score_data_test
+
+- hide 2/1 - 4/2 [Accuracy = 69.19% ] 
+- hide 3/1 - 4/2 [Accuracy = 85.12% ]
+- hide 4/1 - 4/2 [Accuracy = 93.21% ]
