@@ -10,7 +10,7 @@
 # Model_map_R_to_E
 
 - train_data => 1570 rows
-- test_data  => 382 rows
+- test_data  => 383 rows
 
 - model_feature  
 

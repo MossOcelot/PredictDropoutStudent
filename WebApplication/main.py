@@ -48,18 +48,18 @@ def toggle_modal_contact(n1,n2,is_open):
     return is_open
 
 otherModels = []
-model_other_data = [("Random Forest Classifier",0.8556, 0.0880), ("Gradient Boosting Classifier",0.8552, 0.3730),
-                    ("K Neighbors Classifier",0.8534, 0.0200), ("Light Gradient Boosting Machine",0.8516, 0.3730),
-                    ("Extra Trees Classifier",0.8494, 0.0860), ("Extreme Gradient Boosting",0.8441, 0.1590),
-                    ("Ridge Classifier",0.8415, 0.0080), ("Linear Discriminant Analysis",0.8412, 0.0100),
+model_other_data = [("Extra Trees Classifier",0.9129, 0.1190), ("Logistic Regression",0.7486, 0.0830),
+                    ("Random Forest Classifier",0.8750, 0.1170), ("K Neighbors Classifier",0.7378, 0.0710),
+                    ("Quadratic Discriminant Analysis",0.8734, 0.0500), ("Linear Discriminant Analysis",0.7284, 0.0560),
+                    ("Decision Tree Classifier",0.7854, 0.0590), ("Ridge Classifier",0.7085, 0.0500),
                     ]
 for i in model_other_data:
     otherModels.append(
         html.Div([
             html.Div(html.P(i[0],style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'25%'}),
             html.Div([
-                html.P("4 ฟีเจอร์",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),
-                html.P("(ADMIT_YEAR,  ADMIT_TERM, GPA_SCHOOL,....)",style={'color':'white', 'margin': '0px','margin-left':'3px', 'font-size': '8px'}),
+                html.P("14 ฟีเจอร์",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),
+                html.P("(MAJOR_ID,  CAMPUS_ID, DEPT_ID,....)",style={'color':'white', 'margin': '0px','margin-left':'3px', 'font-size': '8px'}),
             ],style={'display':'flex','align-items':'end','width':'47%'}),
             html.Div(html.P("{:.2f} %".format(i[1] * 100),style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'14%'}),
             html.Div(html.P(f"{i[2]} sec",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'14%'}),
@@ -283,7 +283,7 @@ def update_output_layout1_2(n):
 def update_output_layout2(n,confirm):
     global recommendList
     global login_T
-    print(f"XXX: {confirm} : {oldConfirm}")
+    login_T = login_T
     #print(f"result: {predict_label} and {predict_score}")
     if (confirm != oldConfirm) & (login_T):
         login_T = 0
@@ -577,7 +577,7 @@ layout = html.Div(
                             html.Div([
                                 html.Div(html.P("โมเดลอื่นที่ใช้",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),style={'width':'25%'}),
                                 html.Div(html.P("จำนวนฟีเจอร์ที่ใช้ในการเทรนด์",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),style={'width':'47%'}),
-                                html.Div(html.P("ความแม่นยำ",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),style={'width':'14%'}),
+                                html.Div(html.P("F1 score",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),style={'width':'14%'}),
                                 html.Div(html.P("ความเร็ว",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),style={'width':'14%'}),
                             ],style={'display':'flex','padding-left':'20px','padding-right':'20px','align-items':'center','justify-content':'space-between','background':'#353C56','width':'804px', 'height': '50px','border-radius': '5px 5px 0 0'}),
                             # other model
