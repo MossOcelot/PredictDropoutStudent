@@ -8,7 +8,6 @@ import numpy
 import time
 from pycaret.classification import load_model, predict_model
 
-from System.sendGmail import sendGmailToProfesser
 from System.provinces import *
 from System.campus import *
 from System.majorDept import *
@@ -68,7 +67,8 @@ for i in model_other_data:
     )
 
 # -------------------- pie graph --------------------
-values = [80,20]
+values = [345,37]
+cal_per = (values[0]/sum(values)) * 100
 # Create subplots: use 'domain' type for Pie subplot
 fig = make_subplots(rows=1, cols=1, specs=[[{'type':'domain'}]])
 fig.add_trace(go.Pie(values=values ),
@@ -84,7 +84,7 @@ fig.update_layout(
     # Add annotations in the center of the donut pies.
     showlegend=False,
     
-    annotations=[dict(text='91.50%', x=0.5, y=0.6, font_size=16,  showarrow=False, font=dict(color="white")),
+    annotations=[dict(text="{:.2f}%".format(cal_per), x=0.5, y=0.6, font_size=16,  showarrow=False, font=dict(color="white")),
                  dict(text='ผ่าน', x=0.5, y=0.3, font_size=12,  showarrow=False, font=dict(color="white"))
                  ])
 
@@ -205,21 +205,6 @@ def update_output(tab,confirm,*values):
                 
                 IsFirstTime = False
                 oldConfirm = confirm
-                if(result == "R"):
-                    if sendGmailToProfesser("phuminsathipchan@gmail.com", f"{values[0]} มีโอกาสที่จะโดนรีไทร์", 
-                                        f"""
-รหัสนักศึกษา: {values[0]}
-สถานะ: {result}
-ความแม่นยำ: {pre_score * 100} %
-
-หมายเหตุ: ข้อมูลข้างต้นเป็นเพียงการคาดการณ์เท่านั้นโปรดตรวจสอบอีกครั้ง
-                                        """
-                                        ):
-                        print("successs")
-                        return ['', '  เราได้ทำการส่งข้อมูลไปให้อาจารย์ที่ปรึกษาเรียบร้อยแล้ว  ']
-                
-                    return ['', '  การส่งแจ้งเตือนไปยังอาจารย์ที่ปรึกษามีปัญหา โปรดติดต่อได้ที่ >>>  ']
-                
                 
             return ["กรอกข้อมูลครบแล้ว กดยืนยันเพื่อพยากรณ์", '']
         return ['ยังกรอกข้อมูลไม่ครบ', '']
@@ -299,9 +284,9 @@ def update_output_layout1_2(n):
 def update_output_layout2(n,confirm):
     global recommendList
     global login_T
+    print(f"XXX: {confirm} : {oldConfirm}")
     #print(f"result: {predict_label} and {predict_score}")
     if (confirm != oldConfirm) & (login_T):
-        login_T = 0
         time.sleep(1) # ทำให้ช้าลงเพื่อรอ data update
         recommendList = createRecommendCard(predict_label, predict_score)
 
@@ -515,27 +500,27 @@ layout = html.Div(
                         html.Div([
                             html.Div([
                                 html.P("สถิติ",style={'color':'white', 'font-size': '16px'}),
-                                html.P("อัปเดตเมื่อวานนี้",style={'color':'white', 'font-size': '16px'})
+                                html.P("Test Case",style={'color':'white', 'font-size': '16px'})
                             ], style={'display': 'flex', 'justify-content': 'space-between'}),
                             html.Div([
                                 html.Div([
                                     html.Div(html.I(className="bi-graph-up", style={'color': '#7064E7','font-size': '42px'}), style={'border-radius': '100%','padding-left':'20px','padding-right':'20px', 'padding-top':'10px', 'height': '80px', 'background': '#33375C'}),
                                     html.Div([
-                                        html.P("700",style={'color':'white', 'font-size': '24px'}),
-                                        html.P("จำนวนผู้เข้าร่วม",style={'color':'white', 'font-size': '12px'})
+                                        html.P("382",style={'color':'white', 'font-size': '24px'}),
+                                        html.P("จำนวนผู้ทดสอบ",style={'color':'white', 'font-size': '12px'})
                                     ],style={'margin-left':'10px'})
                                 ], style={'display': 'flex'}),
                                 html.Div([
                                     html.Div(html.I(className="bi bi-shield-fill-check", style={'color': '#2AAB69','font-size': '42px'}), style={'border-radius': '100%','padding-left':'20px','padding-right':'20px', 'padding-top':'10px', 'height': '80px', 'background': '#2C434B'}),
                                     html.Div([
-                                        html.P("500",style={'color':'white', 'font-size': '24px'}),
+                                        html.P("345",style={'color':'white', 'font-size': '24px'}),
                                         html.P("จำนวนผู้ที่ผ่าน",style={'color':'white', 'font-size': '12px'})
                                     ],style={'margin-left':'10px'})
                                 ], style={'display': 'flex'}),
                                 html.Div([
                                     html.Div(html.I(className="bi bi-exclamation-triangle-fill", style={'color': '#E15354','font-size': '42px'}), style={'border-radius': '100%','padding-left':'20px','padding-right':'20px', 'padding-top':'10px', 'height': '80px', 'background': '#423747'}),
                                     html.Div([
-                                        html.P("200",style={'color':'white', 'font-size': '24px'}),
+                                        html.P("37",style={'color':'white', 'font-size': '24px'}),
                                         html.P("จำนวนผู้ที่ตกออก",style={'color':'white', 'font-size': '12px'})
                                     ],style={'margin-left':'10px'})
                                 ], style={'display': 'flex'})
@@ -554,7 +539,7 @@ layout = html.Div(
                                 ],style={'width':'201px', 'height':'183px','background':'#292F45','border-radius': '5px','padding':'20px'}),
                                 html.Div([
                                     html.P("จำนวนผลที่ตกออก",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),
-                                    html.P("200",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
+                                    html.P("171",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
                                     html.Div(
                                         dcc.Graph(id="example-graph-2",figure=line_chart, style={'width':'147px', 'height':'73px','margin-top':'10px'})
                                     )
@@ -564,8 +549,8 @@ layout = html.Div(
                                 html.Div([
                                     html.P("สถานะ",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),
                                     html.P("จำนวนนักศึกษาทั้งหมด",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),
-                                    html.Div([html.P("700",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),html.P("คน",style={'color':'white', 'margin': '0px', 'font-size': '14px', 'margin-left': '5px', 'margin-bottom':'5px'})],style={'display':'flex', 'align-items':'end'}),
-                                    html.P("มีจำนวนนักศึกษาที่จบ 80.5 % ใน 5 ปีที่ผ่านมา",style={'color':'white', 'margin': '0px', 'font-size': '11px'}),
+                                    html.Div([html.P(f"{sum(values)}",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),html.P("คน",style={'color':'white', 'margin': '0px', 'font-size': '14px', 'margin-left': '5px', 'margin-bottom':'5px'})],style={'display':'flex', 'align-items':'end'}),
+                                    html.P("มีจำนวนนักศึกษาที่คาดว่าจะตก {:.2f}%".format(100 - cal_per),style={'color':'white', 'margin': '0px', 'font-size': '11px'}),
                                 ]),
                                 html.Div([
                                     dcc.Graph(id="example-graph-3", figure=fig, style={'width':'110px', 'height':'110px'})

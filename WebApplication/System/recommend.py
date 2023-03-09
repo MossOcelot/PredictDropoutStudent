@@ -42,7 +42,7 @@ def getRecommend(label, percent):
 
 def randomRecommend(label, percent):
     randList = getRecommend(label, percent)
-    recommendList = random.choices(randList, k=6)
+    recommendList = random.sample(randList, k=6)
 
     return recommendList
 
