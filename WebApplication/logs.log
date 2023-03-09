@@ -19757,3 +19757,417 @@ If you added this file with `app.scripts.append_script` or `app.css.append_css`,
 See https://dash.plotly.com/external-resources
 
 
+2023-03-09 10:18:07,500:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:07,500:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:07,500:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:07,500:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:07,815:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:18:08,180:INFO:Initializing load_model()
+2023-03-09 10:18:08,181:INFO:load_model(model_name=model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:18:45,474:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:45,474:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:45,474:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:45,474:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:18:45,725:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:18:46,030:INFO:Initializing load_model()
+2023-03-09 10:18:46,030:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:18:46,046:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:18:46,110:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:18:48,333:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:25:16,573:INFO:Initializing predict_model()
+2023-03-09 10:25:16,573:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x1587e9c90>, estimator=Pipeline(memory=FastMemory(location=/tmp/joblib),
+         steps=[('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['MAJOR_ID', 'DEPT_ID', 'DEGREE_ID',
+                                             'STUD_BIRTH_PROVINCE_ID',
+                                             'ENG_SCORE', 'CAMPUS_ID',
+                                             'เกรดปี1เทอม...
+                 TransformerWrapper(include=['INSTITUTION_PROVINCE_ID'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['INSTITUTION_PROVINCE_ID'],
+                                    transformer=LeaveOneOutEncoder(cols=['INSTITUTION_PROVINCE_ID'],
+                                                                   handle_missing='return_nan',
+                                                                   random_state=2071))),
+                ('trained_model',
+                 ExtraTreesClassifier(n_jobs=-1, random_state=2071))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x158755a20>)
+2023-03-09 10:25:16,573:INFO:Checking exceptions
+2023-03-09 10:25:16,573:INFO:Preloading libraries
+2023-03-09 10:25:16,574:INFO:Set up data.
+2023-03-09 10:25:16,578:INFO:Set up index.
+2023-03-09 10:26:27,461:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:33:00,432:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:33:00,434:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:33:00,434:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:33:00,434:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:33:01,674:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:33:02,794:INFO:Initializing load_model()
+2023-03-09 10:33:02,794:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:33:02,834:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:33:03,227:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:33:05,023:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:34:08,705:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:08,705:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:08,705:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:08,705:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:09,007:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:34:09,362:INFO:Initializing load_model()
+2023-03-09 10:34:09,362:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:34:09,380:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:34:09,439:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:34:10,238:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:34:45,540:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:45,540:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:45,540:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:45,540:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:34:45,788:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:34:46,102:INFO:Initializing load_model()
+2023-03-09 10:34:46,102:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:34:46,117:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:34:46,167:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:34:46,362:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:35:25,165:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:35:25,165:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:35:25,165:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:35:25,165:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:35:25,463:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:35:25,814:INFO:Initializing load_model()
+2023-03-09 10:35:25,814:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:35:25,829:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:35:25,888:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:35:26,031:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:36:20,683:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:20,683:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:20,683:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:20,683:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:20,965:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:36:21,306:INFO:Initializing load_model()
+2023-03-09 10:36:21,306:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:36:21,321:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:36:21,382:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:36:22,147:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:36:51,342:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:51,342:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:51,342:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:51,342:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:36:51,589:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:36:51,890:INFO:Initializing load_model()
+2023-03-09 10:36:51,890:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:36:51,906:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:36:51,955:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:36:52,675:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:37:29,860:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:37:29,860:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:37:29,860:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:37:29,860:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:37:30,154:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:37:30,500:INFO:Initializing load_model()
+2023-03-09 10:37:30,500:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:37:30,514:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:37:30,577:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:37:31,085:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:44:07,121:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:44:07,121:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:44:07,121:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:44:07,121:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:44:07,430:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:44:07,816:INFO:Initializing load_model()
+2023-03-09 10:44:07,816:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:44:07,831:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:44:07,892:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:44:08,791:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:47:06,818:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:47:06,818:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:47:06,818:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:47:06,818:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-09 10:47:07,125:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-03-09 10:47:07,474:INFO:Initializing load_model()
+2023-03-09 10:47:07,474:INFO:load_model(model_name=../model/model_top_no_STILL_STUDENT_2Class_map_E_to_R_last_final, platform=None, authentication=None, verbose=True)
+2023-03-09 10:47:07,490:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/pycaret/internal/pipeline.py:135: UserWarning: Version mismatch:
+current: {'deps_info': {'pip': '23.0.1', 'setuptools': '65.5.0', 'pycaret': '3.0.0rc9', 'IPython': '8.10.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.9', 'machine': 'arm64'}}
+pickle: {'deps_info': {'pip': '22.0.2', 'setuptools': '59.6.0', 'pycaret': '3.0.0rc9', 'IPython': '8.9.0', 'ipywidgets': '8.0.4', 'tqdm': '4.64.1', 'numpy': '1.23.5', 'pandas': '1.5.3', 'jinja2': '3.1.2', 'scipy': '1.10.1', 'joblib': '1.2.0', 'sklearn': '1.2.1', 'pyod': '1.0.7', 'imblearn': '0.10.1', 'category_encoders': '2.6.0', 'lightgbm': '3.3.5', 'numba': '0.56.4', 'requests': '2.28.2', 'matplotlib': '3.7.0', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.13.0', 'kaleido': '0.2.1', 'statsmodels': '0.13.5', 'sktime': '0.16.1', 'tbats': '1.1.2', 'pmdarima': '2.0.2', 'psutil': '5.9.4'}, 'python': {'version': '3.10.6', 'machine': 'x86_64'}}
+  warnings.warn(
+
+2023-03-09 10:47:07,556:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/plotly/graph_objs/_deprecations.py:378: DeprecationWarning:
+
+plotly.graph_objs.Line is deprecated.
+Please replace it with one of the following more specific types
+  - plotly.graph_objs.scatter.Line
+  - plotly.graph_objs.layout.shape.Line
+  - etc.
+
+
+
+2023-03-09 10:47:07,617:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+
+2023-03-09 10:47:51,103:INFO:Initializing predict_model()
+2023-03-09 10:47:51,103:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x16625d8d0>, estimator=Pipeline(memory=FastMemory(location=/tmp/joblib),
+         steps=[('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['MAJOR_ID', 'DEPT_ID', 'DEGREE_ID',
+                                             'STUD_BIRTH_PROVINCE_ID',
+                                             'ENG_SCORE', 'CAMPUS_ID',
+                                             'เกรดปี1เทอม...
+                 TransformerWrapper(include=['INSTITUTION_PROVINCE_ID'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['INSTITUTION_PROVINCE_ID'],
+                                    transformer=LeaveOneOutEncoder(cols=['INSTITUTION_PROVINCE_ID'],
+                                                                   handle_missing='return_nan',
+                                                                   random_state=2071))),
+                ('trained_model',
+                 ExtraTreesClassifier(n_jobs=-1, random_state=2071))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x166220940>)
+2023-03-09 10:47:51,103:INFO:Checking exceptions
+2023-03-09 10:47:51,103:INFO:Preloading libraries
+2023-03-09 10:47:51,104:INFO:Set up data.
+2023-03-09 10:47:51,108:INFO:Set up index.
+2023-03-09 10:49:17,994:WARNING:/Users/phuminsathipchan/Desktop/งานมหาลัย/Project/DropOut/venv/lib/python3.10/site-packages/dash/resources.py:61: UserWarning:
+
+You have set your config to `serve_locally=True` but A local version of https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css is not available.
+If you added this file with `app.scripts.append_script` or `app.css.append_css`, use `external_scripts` or `external_stylesheets` instead.
+See https://dash.plotly.com/external-resources
+
+

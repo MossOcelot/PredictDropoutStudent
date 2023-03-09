@@ -24,6 +24,7 @@ oldConfirm = 0
 predict_score = 0
 predict_label = ''
 recommendList = []
+last_logout = 0
 # Input Prediction
 @app.callback(
     Output("modal", "is_open"),
@@ -48,17 +49,21 @@ def toggle_modal_contact(n1,n2,is_open):
     return is_open
 
 otherModels = []
-
-for i in range(10):
+model_other_data = [("Random Forest Classifier",0.8556, 0.0880), ("Gradient Boosting Classifier",0.8552, 0.3730),
+                    ("K Neighbors Classifier",0.8534, 0.0200), ("Light Gradient Boosting Machine",0.8516, 0.3730),
+                    ("Extra Trees Classifier",0.8494, 0.0860), ("Extreme Gradient Boosting",0.8441, 0.1590),
+                    ("Ridge Classifier",0.8415, 0.0080), ("Linear Discriminant Analysis",0.8412, 0.0100),
+                    ]
+for i in model_other_data:
     otherModels.append(
         html.Div([
-            html.Div(html.P("Random Forest Classifier",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'25%'}),
+            html.Div(html.P(i[0],style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'25%'}),
             html.Div([
                 html.P("4 ฟีเจอร์",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),
                 html.P("(ADMIT_YEAR,  ADMIT_TERM, GPA_SCHOOL,....)",style={'color':'white', 'margin': '0px','margin-left':'3px', 'font-size': '8px'}),
             ],style={'display':'flex','align-items':'end','width':'47%'}),
-            html.Div(html.P("94.3 %",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'14%'}),
-            html.Div(html.P("0.0810 sec",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'14%'}),
+            html.Div(html.P("{:.2f} %".format(i[1] * 100),style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'14%'}),
+            html.Div(html.P(f"{i[2]} sec",style={'color':'white', 'margin': '0px', 'font-size': '14px'}),style={'width':'14%'}),
         ],style={'display':'flex','padding-left':'20px','padding-right':'20px','align-items':'center','justify-content':'space-between','width':'804px','margin-top':'10px', 'height': '50px', 'border-bottom':'2px solid #353C56'})
     )
 
@@ -85,8 +90,8 @@ fig.update_layout(
 
 # -------------------- bar graph --------------------
 # Define data for the bar chart
-x = ['2559', '2560', '2561', '2562']
-y = [30, 50, 20, 32]
+x = ['1/1-1/2', '1/1-2/2', '1/1-3/2']
+y = [69.19, 85.12, 93.21]
 
 # Create the bar chart
 bar_chart = go.Figure(
@@ -114,8 +119,8 @@ bar_chart.update_yaxes(tickfont=dict(color='white'))
     
 # -------------------- line graph --------------------
 # Define data for the bar chart
-x = ['2559', '2560', '2561', '2562']
-y = [100, 50, 170, 20]
+x = ['2561', '2562', '2563', '2564']
+y = [83, 76, 102, 171]
 
 # Create the bar chart
 line_chart = go.Figure(
@@ -154,50 +159,49 @@ def update_output(tab,confirm,*values):
     global IsFirstTime
     global oldConfirm
 
-    print(values)
     if tab == 'tab-1':
-        print("Tap 1")
         if '' not in values[:5]:
             return ["กรอกครบแล้ว",'']
         return ['ยังกรอกไม่ครบ','']
     elif tab == 'tab-2':
-        print("Tap 2")
+ 
         if '' not in values and values.count(None) < 7:
-            print("xxx")
+       
             if confirm != oldConfirm:
-                print("SSAA")
+    
                 values = list(values)
                 index_set = {
-                    'MAJOR_ID': checkMajorId(values[5]),
-                    'DEPT_ID': checkDeptId(values[6]),
-                    'DEGREE_ID': checkDegreeId(values[5]),
-                    'STUD_BIRTH_PROVINCE_ID': checkProvinceID(values[1]),
-                    'INSTITUTION_PROVINCE_ID': checkProvinceID(values[2]),
-                    'ENG_SCORE': values[3],
-                    'CAMPUS_ID': checkCampasID(values[4]),
-                    'เกรดปี1เทอม1': values[7],
-                    'เกรดปี1เทอม2': values[8],
-                    'เกรดปี2เทอม1': values[9],
-                    'เกรดปี2เทอม2': values[10],
-                    'เกรดปี3เทอม1': values[11],
-                    'เกรดปี3เทอม2': values[12],
-                    'เกรดปี4เทอม1': values[13],
-                    'เกรดปี4เทอม2': values[14]
+                    'MAJOR_ID': [checkMajorId(values[5])],
+                    'DEPT_ID': [checkDeptId(values[6])],
+                    'DEGREE_ID': [checkDegreeId(values[5])],
+                    'STUD_BIRTH_PROVINCE_ID': [checkProvinceID(values[1])],
+                    'INSTITUTION_PROVINCE_ID': [checkProvinceID(values[2])],
+                    'ENG_SCORE': [values[3]],
+                    'CAMPUS_ID': [checkCampasID(values[4])],
+                    'เกรดปี1เทอม1': [values[7]],
+                    'เกรดปี1เทอม2': [values[8]],
+                    'เกรดปี2เทอม1': [values[9]],
+                    'เกรดปี2เทอม2': [values[10]],
+                    'เกรดปี3เทอม1': [values[11]],
+                    'เกรดปี3เทอม2': [values[12]],
+                    'เกรดปี4เทอม1': [values[13]],
+                    'เกรดปี4เทอม2': [values[14]]
                 }
-                dataframe = pandas.DataFrame(columns=model.feature_names_in_[:-1])
-                dataframe = dataframe.append(index_set, ignore_index=True)
+                dataframe = pandas.DataFrame(index_set)
+                # dataframe = dataframe.append(index_set, ignore_index=True)
+                
                 start,stop = dataframe.columns.tolist().index('เกรดปี1เทอม1'),dataframe.columns.tolist().index('เกรดปี4เทอม2') + 1
-
-                mean_row = (dataframe.iloc[0,start:stop].sum() / (dataframe.iloc[0,start:stop] != 0).sum())
-                data_1 = dataframe.iloc[0:1].replace(numpy.nan,mean_row)
-                print(f'{data_1}')
+                print(f'{start}:{stop}')
+                mean_row = (dataframe.iloc[0,start:stop]).sum() / (dataframe.iloc[0,start:stop] != 0).sum()
+                print("mean : ",mean_row)
+                data_1 = dataframe.iloc[0:1].replace(0,mean_row)
+                #print(f'{data_1}')
+                print("data_out",data_1)
                 predict_value = predict_model(model, data_1)
                 result = predict_value['prediction_label'][0]
                 pre_score = predict_value['prediction_score'][0]
-                print(f"OOP: {predict_score}")
                 predict_score = pre_score
                 predict_label = result
-                print("success")
                 
                 IsFirstTime = False
                 oldConfirm = confirm
@@ -294,8 +298,10 @@ def update_output_layout1_2(n):
              [Input('interval-component-layout2', 'n_intervals'), Input('confirm', 'n_clicks') ])
 def update_output_layout2(n,confirm):
     global recommendList
-    print(f"result: {predict_label} and {predict_score}")
-    if confirm != oldConfirm:
+    global login_T
+    #print(f"result: {predict_label} and {predict_score}")
+    if (confirm != oldConfirm) & (login_T):
+        login_T = 0
         time.sleep(1) # ทำให้ช้าลงเพื่อรอ data update
         recommendList = createRecommendCard(predict_label, predict_score)
 
@@ -303,8 +309,62 @@ def update_output_layout2(n,confirm):
         return html.Div(html.P("ยังไม่มีข้อมูลพยากรณ์",style={'display':'flex','align-items':'center','justify-content':'center','height':'285px','color':'white', 'margin': '0px', 'font-size': '16px'}), style={'display':'grid', 'grid-template-columns':'562px','align-items':'center'})
     else:
         return html.Div(recommendList,style={'display':'grid', 'grid-template-columns':'281px 281px'})
+    
+@app.callback(Output('hidden-div','children'),[Input('user','value'),Input('pass','value')])
+def login(user_name,pass_word):
+    if (user_name in ["gao","moss","sun"]) & (str(pass_word) in ['123456',"123456","123456"]):
+        print('test')
+        #webbrowser.open('http://localhost:8050/')
+        global IsFirstTime
+        global oldConfirm
+        global predict_score
+        global predict_label
+        global recommendList
+        global login_T
+        global last_logout
+        global logouts
+        login_T = 1
+        last_logout = 0
+        IsFirstTime = True
+        oldConfirm = 0
+        predict_score = 0
+        predict_label = ''
+        recommendList = []
+        app.layout = layout
+        return user_name+ str(pass_word)
 
-app.layout = html.Div( 
+
+    
+app.layout = html.Div(children=[
+html.Div(children=[html.H1(children='Login',style={"color":"white"}),
+html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
+                        ],style={"textAlign": "center",'background':'#11264f',"position":"absolute","top":"40vh","left":"43vw"})
+]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background-image': 'url("/assets/school.jpg")',
+    'background-size': '40%'})
+
+@app.callback(Output('hiddens-div','children'),[Input('logout','n_clicks')])
+def logout(logout):
+    global last_logout
+    global logouts
+    logouts = logout
+    print("test : ",logouts)
+    print("test2 : ",last_logout)
+    if(last_logout != logout):
+        last_logout = logout
+        #login_T = 0
+        app.layout = html.Div(children=[
+        html.Div(children=[html.H1(children='Login',style={"color":"white","margin-botton":""}),
+        html.Div(children=[dcc.Input(id = 'user',type='text',placeholder="user",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+        html.Div(children=[dcc.Input(id = 'pass',type='password',placeholder="password",style={"textAlign": "center"})],style={"textAlign": "center","margin-top":"10px"}),
+        html.Div(children=[dcc.Link(children=[html.Button("login",id = 'login',type="button")],href='/',refresh=True)],style={"textAlign": "center","margin-top":"10px"})
+                        ],style={"textAlign": "center",'background':'#171D31',"position":"absolute","top":"39vh","left":"43vw"})
+]+ [html.Div(id='hidden-div',style={"display":"none"})],style={"textAlign": "center","width":"100vw","height":"100vh",'background':'#171D31'})
+    return 1
+
+
+layout = html.Div( 
     [
         dbc.Row(
             [
@@ -319,6 +379,7 @@ app.layout = html.Div(
                 ),
                 dbc.Col([
                     html.Div([
+                        dcc.Link(children=[html.Button("logout",id = 'logout',type="button",n_clicks=0,style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '10px'})],href='/',refresh=True),
                         html.Div(id="alert-output", style={'margin-right': '10px','height':'45px', 'background': '#F8A22A', 'color':'white', 'display':'flex','align-items':'center','justify-content':'center'}),
                         html.Button("ติดต่อ",id="open_contact",style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '36px'}),
                         # modal Contact
@@ -398,33 +459,33 @@ app.layout = html.Div(
                                                             html.Div([
                                                                 html.Div([
                                                                     html.P("ปี 1 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-8', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-8', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),
                                                                 html.Div([
                                                                     html.P("ปี 1 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-9', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-9', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]), 
                                                                 html.Div([
                                                                     html.P("ปี 2 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-10', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-10', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),html.Div([
                                                                     html.P("ปี 2 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-11', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-11', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),
                                                                 html.Div([
                                                                     html.P("ปี 3 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-12', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-12', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]), 
                                                                 html.Div([
                                                                     html.P("ปี 3 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-13', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-13', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),html.Div([
                                                                     html.P("ปี 4 เทอม 1", className="mini_text"),
-                                                                    dcc.Input(id='input-14', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-14', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]),
                                                                 html.Div([
                                                                     html.P("ปี 4 เทอม 2", className="mini_text"),
-                                                                    dcc.Input(id='input-15', type='number', value=None, min=0, max=4,className="miniinput_box_for_grade")
+                                                                    dcc.Input(id='input-15', type='number', value=0, min=0, max=4,className="miniinput_box_for_grade")
                                                                 ]), 
                                                             ],style={'display':'grid','grid-gap': '10px','justify-content': 'space-between', 'grid-template-columns': '1fr 1fr 1fr', 'grid-template-rows': '1fr 1fr 1fr'})
                                                         ])
@@ -477,13 +538,6 @@ app.layout = html.Div(
                                         html.P("200",style={'color':'white', 'font-size': '24px'}),
                                         html.P("จำนวนผู้ที่ตกออก",style={'color':'white', 'font-size': '12px'})
                                     ],style={'margin-left':'10px'})
-                                ], style={'display': 'flex'}),
-                                html.Div([
-                                    html.Div(html.I(className="bi bi-star-fill", style={'color': '#12ABC3','font-size': '42px'}), style={'border-radius': '100%','padding-left':'20px','padding-right':'20px', 'padding-top':'10px', 'height': '80px', 'background': '#2A445A'}),
-                                    html.Div([
-                                        html.P("700",style={'color':'white', 'font-size': '24px'}),
-                                        html.P("จำนวนผู้เข้าร่วม",style={'color':'white', 'font-size': '12px'})
-                                    ],style={'margin-left':'10px'})
                                 ], style={'display': 'flex'})
                             ], style={'display': 'flex', 'justify-content': 'space-between','margin-top':'10px'}),
                         ],style={'padding':'20px','background':'#292F45','width':'875px', 'height': '183px','border-radius': '5px', 'margin-right': '15px'})
@@ -493,7 +547,7 @@ app.layout = html.Div(
                             html.Div([
                                 html.Div([
                                     html.P("ความแม่นยำ",style={'color':'white', 'margin': '0px', 'font-size': '16px'}),
-                                    html.P("40 %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
+                                    html.P("95.30 %",style={'color':'white', 'margin': '0px', 'font-size': '24px'}),
                                     html.Div(
                                         dcc.Graph(id="example-graph-1",figure=bar_chart, style={'width':'147px', 'height':'73px','margin-top':'10px'})
                                     )
@@ -548,12 +602,14 @@ app.layout = html.Div(
                             html.Div(otherModels, style={"overflow": "scroll",'height':'350px'})
                             
                         ],style={'background':'#292F45','width':'804px', 'height': '400px','border-radius': '5px', 'margin-right': '15px'}),
-                        html.Div(style={'display':'flex','justify-content':'space-between','padding':'20px','background':'#292F45','width':'500px', 'height': '400px','border-radius': '5px', 'margin-right': '15px'})
+                        html.Div([
+                            html.Img(src="assets/pictor.png", style={'width': '500px','border-radius': '5px','height': '400px'}),
+                        ],style={'display':'flex','justify-content':'space-between','background':'#292F45','width':'500px', 'height': '400px','border-radius': '5px', 'margin-right': '15px'})
                     ],style={'display':'flex','justify-content':'space-between','margin-left': '23px','margin-top':'15px', 'margin-bottom': '15px'})
                 ]),
             ]
         ),
-    ],
+    ] + [html.Div(id='hiddens-div',style={"display":"none"})],
     style={'background':'#171D31'}
 )
 
@@ -562,4 +618,4 @@ app.css.append_css({
 })
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False,port = 8051)
