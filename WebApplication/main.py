@@ -400,7 +400,7 @@ layout = html.Div(
                                 dcc.Interval(id='interval-component-layout1', interval=500, n_intervals=0),
                                 html.Div(id='output-layout1'),
                                 html.Div([
-                                    html.P('มีนักศึกษาร้อยละ 20 ที่มีโอกาสตกออก',style={'color':'white','font-size':'14px','margin':'0px'}),
+                                    html.P('มีนักศึกษาร้อยละ {:.2f} ที่มีโอกาสตกออก'.format(100 - cal_per),style={'color':'white','font-size':'14px','margin':'0px'}),
                                     html.Button("คาดการณ์",id='open',style={'width': '100px', 'height': '35px', 'color': 'white','border': '0px', 'background': '#7465F1', 'border-radius': '5px', 'margin-right': '36px', 'margin-top': '8px'}),
                                     # modal input predict
                                     dbc.Modal([

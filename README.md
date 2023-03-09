@@ -3,6 +3,10 @@
 - นายภูมินทร์​ สาทิพย์จันทร์ 6510110363 use => Mosthunter
 - นายธนโชติ พุ่มนึก 6510110185 use => DarkstarXs
 
+# Web Dashboard
+- อยู่ใน Folder WebApplication
+- ไฟล์หลักคือ main.py
+
 # Model_map_R_to_E
 
 - train_data => 1570 rows
